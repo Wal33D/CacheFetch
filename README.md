@@ -14,7 +14,8 @@ A class for caching data from API requests in Node.js. This class makes use of t
 The class can be imported and instantiated in your Node.js code as follows:
 
 ````javascript
-const Data = require('./data');  const data = new Data();
+const Data = require('./data');  
+const data = new Data();
 ````
 The `Data` class has the following methods:
 
