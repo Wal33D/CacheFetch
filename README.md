@@ -48,9 +48,6 @@ const Data = require('./data');
 const data = new Data(); 
 const token = 'your_api_token';  
 
-//Initialize Auto Updates
-data.autoUpdate(token);  
-
 // Get the data 
 data.getData(token).then((data) => { console.log(data); });`
 ````
