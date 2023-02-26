@@ -1,46 +1,15 @@
-Data Caching Class
-A class for caching data from API requests in Node.js. This class makes use of the fs and fetch modules to store and retrieve data, respectively. The cached data is saved to a JSON file, and the class will automatically check the cache's expiration time and refresh the data as necessary.
+<div class="markdown prose w-full break-words dark:prose-invert dark"><h2>Data Caching Class</h2><p>A class for caching data from API requests in Node.js. This class makes use of the <code>fs</code> and <code>fetch</code> modules to store and retrieve data, respectively. The cached data is saved to a JSON file, and the class will automatically check the cache's expiration time and refresh the data as necessary.</p><h3>Features</h3><ul><li>Automatically refreshes data when cache has expired</li><li>Uses <code>fs</code> module to save and load cache data</li><li>Throws an error if no token is provided</li></ul><h3>Usage</h3><p>The class can be imported and instantiated in your Node.js code as follows:</p><pre><div class="bg-black mb-4 rounded-md"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans"><span class="">javascript</span><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> <span class="hljs-title class_">Data</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./data'</span>);
 
-Features
-Automatically refreshes data when cache has expired
-Uses fs module to save and load cache data
-Throws an error if no token is provided
-Usage
-The class can be imported and instantiated in your Node.js code as follows:
+<span class="hljs-keyword">const</span> data = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Data</span>();
+</code></div></div></pre><p>The <code>Data</code> class has the following methods:</p><h4><code>autoUpdate(token, minutes = 1)</code></h4><p>Starts the auto-update process, which checks the cache every <code>minutes</code> interval.</p><ul><li><code>token</code> (required): API token for making requests</li><li><code>minutes</code> (optional, default <code>1</code>): interval in minutes to check cache</li></ul><h4><code>update(token)</code></h4><p>Updates the cache with new data.</p><ul><li><code>token</code> (required): API token for making requests</li></ul><h4><code>getData(token)</code></h4><p>Gets the data and updates the cache if necessary.</p><ul><li><code>token</code> (required): API token for making requests</li></ul><h3>Example</h3><p>Here is a complete example of how to use the <code>Data</code> class:</p><pre><div class="bg-black mb-4 rounded-md"><div class="flex items-center relative text-gray-200 bg-gray-800 px-4 py-2 text-xs font-sans"><span class="">javascript</span><button class="flex ml-auto gap-2"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>Copy code</button></div><div class="p-4 overflow-y-auto"><code class="!whitespace-pre hljs language-javascript"><span class="hljs-keyword">const</span> <span class="hljs-title class_">Data</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./data'</span>);
 
-javascript
-Copy code
-const Data = require('./data');
+<span class="hljs-keyword">const</span> data = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Data</span>();
+<span class="hljs-keyword">const</span> token = <span class="hljs-string">'your_api_token'</span>;
 
-const data = new Data();
-The Data class has the following methods:
+data.<span class="hljs-title function_">autoUpdate</span>(token);
 
-autoUpdate(token, minutes = 1)
-Starts the auto-update process, which checks the cache every minutes interval.
-
-token (required): API token for making requests
-minutes (optional, default 1): interval in minutes to check cache
-update(token)
-Updates the cache with new data.
-
-token (required): API token for making requests
-getData(token)
-Gets the data and updates the cache if necessary.
-
-token (required): API token for making requests
-Example
-Here is a complete example of how to use the Data class:
-
-javascript
-Copy code
-const Data = require('./data');
-
-const data = new Data();
-const token = 'your_api_token';
-
-data.autoUpdate(token);
-
-// Get the data
-data.getData(token).then((data) => {
-    console.log(data);
+<span class="hljs-comment">// Get the data</span>
+data.<span class="hljs-title function_">getData</span>(token).<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> {
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(data);
 });
+</code></div></div></pre></div>
